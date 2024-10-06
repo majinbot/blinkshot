@@ -1,7 +1,6 @@
 import Providers from "@/app/providers";
 import bgPattern from "@/public/bg-pattern-transparent.png";
 import type { Metadata } from "next";
-import PlausibleProvider from "next-plausible";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -52,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        <PlausibleProvider domain="blinkshot.io" />
+        <title></title>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} dark h-full min-h-full bg-[length:6px] font-mono text-gray-100 antialiased`}

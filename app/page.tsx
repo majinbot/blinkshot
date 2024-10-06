@@ -16,7 +16,7 @@ import { useState } from "react";
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [userAPIKey, setUserAPIKey] = useState("");
-  const debouncedPrompt = useDebounce(prompt, 300);
+  const debouncedPrompt = useDebounce(prompt, 600);
 
   const { data: image, isFetching } = useQuery({
     placeholderData: (previousData) => previousData,
@@ -53,7 +53,7 @@ export default function Home() {
             <Logo />
           </a>
         </div>
-        <div>
+        <div className="md:mt-1 sm:mt-8 xs:mt-6">
           <label className="text-xs text-gray-200">
             [Optional] Add your{" "}
             <a
@@ -75,7 +75,7 @@ export default function Home() {
       </header>
 
       <div className="flex justify-center">
-        <form className="mt-10 w-full max-w-lg">
+        <form className="mt-24 w-full max-w-lg">
           <fieldset>
             <div className="relative">
               <Textarea
@@ -97,7 +97,7 @@ export default function Home() {
         </form>
       </div>
 
-      <div className="flex w-full grow flex-col items-center justify-center pb-8 pt-4 text-center">
+      <div className="mt-12 flex w-full grow flex-col items-center justify-start pb-8 pt-4 text-center">
         {!image || !prompt ? (
           <div className="max-w-xl md:max-w-4xl lg:max-w-3xl">
             <p className="text-xl font-semibold text-gray-200 md:text-3xl lg:text-4xl">
@@ -109,7 +109,7 @@ export default function Home() {
             </p>
           </div>
         ) : (
-          <div className="mt-4 flex w-full max-w-4xl justify-center">
+          <div className="mt-4 flex w-full max-w-4xl justify-start">
             <div>
               <Image
                 placeholder="blur"
@@ -127,38 +127,18 @@ export default function Home() {
 
       <footer className="mt-16 w-full items-center pb-10 text-center text-gray-300 md:mt-4 md:flex md:justify-between md:pb-5 md:text-xs lg:text-sm">
         <p>
-          Powered by{" "}
-          <a
-            href="https://www.dub.sh/together-ai"
-            target="_blank"
-            className="underline underline-offset-4 transition hover:text-blue-500"
-          >
-            Together.ai
-          </a>{" "}
-          &{" "}
-          <a
-            href="https://dub.sh/together-flux"
-            target="_blank"
-            className="underline underline-offset-4 transition hover:text-blue-500"
-          >
-            Flux
+          <a href="https://www.dub.sh/together-ai" target="_blank">
+            <span
+              className="underline underline-offset-4 transition hover:text-blue-500"
+            >
+              Powered by Flux
+            </span>
           </a>
         </p>
 
         <div className="mt-8 flex items-center justify-center md:mt-0 md:justify-between md:gap-6">
-          <p className="hidden whitespace-nowrap md:block">
-            100% free and{" "}
-            <a
-              href="https://github.com/Nutlope/blinkshot"
-              target="_blank"
-              className="underline underline-offset-4 transition hover:text-blue-500"
-            >
-              open source
-            </a>
-          </p>
-
           <div className="flex gap-6 md:gap-2">
-            <a href="https://github.com/Nutlope/blinkshot" target="_blank">
+            <a href="https://github.com/majinbot/blinkshot" target="_blank">
               <Button
                 variant="outline"
                 size="sm"
@@ -168,7 +148,7 @@ export default function Home() {
                 GitHub
               </Button>
             </a>
-            <a href="https://x.com/nutlope" target="_blank">
+            <a href="https://x.com/majinn_ai" target="_blank">
               <Button
                 size="sm"
                 variant="outline"
